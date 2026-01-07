@@ -16,10 +16,15 @@ func main() {
 
 	ready := make(chan struct{})
 
+	// Start the API server in a separate goroutine
 	go api.StartRecorder(ready)
 
+	// Wait for the API server to be ready
 	<-ready
 
+	cli.StartUI()
+
+	// Handle CLI commands
 	switch os.Args[1] {
 	case "run":
 		cli.RunCommand()

@@ -20,3 +20,17 @@ func handleEvent(ctx *fiber.Ctx) error {
 	storage.SaveEvent(event)
 	return ctx.SendStatus(202)
 }
+
+func GetTraces(c *fiber.Ctx) error {
+	traces, err := storage.ReadTraces()
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": err.Error(),
+		})
+	}
+
+	return c.JSON(fiber.Map{
+		"count": len(traces),
+		"data":  traces,
+	})
+}
