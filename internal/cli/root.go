@@ -10,9 +10,9 @@ import (
 
 func RunCommand() {
 
-	cmd := exec.Command("npm", "run", "start")
+	cmd := exec.Command("npm", "run", "start:dev")
 
-	cmd.Dir = `C:\Users\yousu\OneDrive\Desktop\clients\nest.js\nest-client`
+	cmd.Dir = `C:\Users\yousu\OneDrive\Desktop\clients\orders-service`
 
 	// Forward output to your terminal
 	cmd.Stdout = os.Stdout

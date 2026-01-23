@@ -4,7 +4,9 @@ import (
 	"bufio"
 	"encoding/json"
 	"os"
+	"sort"
 	"sync"
+	"time"
 
 	"github.com/YousufAnalytics/chronos/internal/domain"
 )
@@ -50,6 +52,22 @@ func ReadTraces() (map[string][]domain.Event, error) {
 
 	if err := scanner.Err(); err != nil {
 		return nil, err
+	}
+
+	for traceID, events := range traces {
+		sort.Slice(events, func(i, j int) bool {
+			ti, err1 := time.Parse(time.RFC3339Nano, events[i].Timestamp)
+			tj, err2 := time.Parse(time.RFC3339Nano, events[j].Timestamp)
+
+			// Fallback: keep original order if parsing fails
+			if err1 != nil || err2 != nil {
+				return i < j
+			}
+
+			return ti.Before(tj)
+		})
+
+		traces[traceID] = events
 	}
 
 	return traces, nil

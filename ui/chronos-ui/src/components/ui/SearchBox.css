@@ -1,0 +1,26 @@
+.trace-search {
+  margin-top: 3rem;
+   padding: 16px;
+}
+
+.trace-search input {
+  width: 70%;
+  height: 44px;
+
+  padding: 0 16px;
+  border-radius: 10px;
+
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+
+  font-size: 14px;
+  color: #374151;
+
+  outline: none;
+}
+
+/* subtle focus look (even if disabled later removed) */
+.trace-search input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.2);
+}

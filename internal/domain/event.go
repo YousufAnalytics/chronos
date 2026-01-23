@@ -29,6 +29,10 @@ type Event struct {
 	ErrorMessage string `json:"error_message,omitempty"`
 	ErrorCode    string `json:"error_code,omitempty"`
 
+	FailedAt string `json:"failedAt,omitempty"`
+
+	ErrorType string `json:"errorType,omitempty"`
+
 	// ---- Arbitrary Metadata (future-proof) ----
 	Attributes map[string]any `json:"attributes,omitempty"`
 }
