@@ -41,8 +41,6 @@ Logs are scattered. Stack traces are noisy. Debugging is slow.
 ### 1️⃣ Install Chronos Tracer (Backend)
 
 ```bash
-npm install chronos-tracer
-
 git clone https://github.com/YousufAnalytics/chronos.git
 
 ```
@@ -213,10 +211,4 @@ https://github.com/YousufAnalytics/orders-service
 - Packaged Go CLI
 - OpenTelemetry compatibility
 
----
 
-## License
-MIT License
-
-chronos is open core
-the core will remain open source
